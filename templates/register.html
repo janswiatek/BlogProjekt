@@ -1,0 +1,30 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% extends "baza.html" %}
+{% block content %}
+
+
+<div class="display-2 text-center">
+<h1>Zarejestruj się</h1>
+<div class="input-group mb-3">
+<span class="input-group-text" id="basic-addon2">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+             <p>{{ message }}</p>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+</span>
+</div>
+</div>
+
+
+<br>
+
+
+
+
+
+{% endblock %}

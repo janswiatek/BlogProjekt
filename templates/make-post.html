@@ -1,0 +1,19 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% extends "baza.html" %}
+{% block content %}
+
+
+            {% if is_edit: %}
+            <h1>Edytuj Posta</h1>
+            {% else: %}
+            <h1>Nowy Post</h1>
+            {% endif %}
+
+
+        {{ ckeditor.load() }}
+        {{ ckeditor.config(name='body') }}
+        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "baza.html" %}
+{% block content %}
+
+
+<center>
+<hr>
+      <!-- Dodaj nowy post -->
+          {% if current_user.isadmin %}
+          <a class="btn btn-primary" href="{{url_for('add_new_post')}}">Wyślij nowego posta</a>
+          {% endif %}
+
+        {% for post in all_posts %}
+
+<hr>
+<br>
+          <a href="{{ url_for('show_post', post_id=post.id) }}">
+              {{post.title}}
+          </a>
+<br>
+          <p>
+            {{ post.body|safe }}
+          </p>
+          <br>
+Autor: <b>{{post.author.name}}</b>
+             {{post.date}}
+          
+        </div>
+        <hr>
+        {% endfor %}
+
+</center>
+
+  <hr>
+
+  {% endblock %}
+
